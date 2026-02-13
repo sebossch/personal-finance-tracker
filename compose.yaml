@@ -1,0 +1,16 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: pers-fin-backend:v1
+    container_name: pers-fin-backend-ctr
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: pers-fin-frontend:v1
+    container_name: pers-fin-frontend-ctr
+    depends_on:
+      - backend
